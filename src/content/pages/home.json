@@ -1,0 +1,23 @@
+{
+  "slide": [
+    {
+      "title": "Gole di San Martino vista monastero",
+      "image": "/src/assets/img/cms/home/slide/0/image.jpg"
+    },
+    {
+      "title": "Vista esterno gole di san martino",
+      "image": "/src/assets/img/cms/home/slide/1/image.jpg"
+    },
+    {
+      "title": "Vista interna gole di san martino",
+      "image": "/src/assets/img/cms/home/slide/2/image.jpg"
+    },
+    {
+      "title": "Fiume verde Fara San Martino",
+      "image": "/src/assets/img/cms/home/slide/3/image.jpg"
+    }
+  ],
+  "pretitle": "Esplora la natura selvaggia",
+  "title": "Gole di San Martino",
+  "description": "Immergiti in un'esperienza unica tra le maestose pareti rocciose delle Gole di San Martino. Scopri sentieri nascosti e panorami mozzafiato nel cuore dell'Abruzzo."
+}

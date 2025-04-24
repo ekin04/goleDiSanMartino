@@ -34,7 +34,7 @@ const { descrizione, immagine, index, titolo } = Astro.props;
       ,
       twitter={{
         card: "summary_large_image",
-        site: Astro.url.origin.slice(0, -1),
+        site: Astro.url.origin,
         title: titolo,
         image: immagine ? immagine : Astro.url.origin + "/og_banner.jpg",
         description: descrizione.slice(0, 160),

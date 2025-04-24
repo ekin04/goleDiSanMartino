@@ -9,7 +9,7 @@ import Maps from "@img/cms/home/fara-san-martino-maps.png";
 import Gruppo from "@img/cms/home/gruppo.jpg";
 import Gole from "@img/cms/home/gole.jpg";
 import Fiume from "@img/cms/home/fiume.jpg";
-const bgFiume = await getImage({src: Fiume, width: 1200, quality: 50});
+const bgFiume = await getImage({ src: Fiume, width: 1200, quality: 50 });
 import Carousel from "@components/shared/Carousel.astro";
 import ContactButton from "@components/shared/ContactButton.astro";
 import datiJson from "@content/pages/home.json";
@@ -19,10 +19,13 @@ import datiJson from "@content/pages/home.json";
   <HeroFixed />
 
   <!-- Section 1: Cosa sono le Gole di San Martino -->
-  <section id="cosa-sono" class="py-10 md:py-20 bg-white relative -top-4 rounded-t-2xl">
+  <section
+    id="cosa-sono"
+    class="py-10 md:py-20 bg-white relative -top-4 rounded-t-2xl"
+  >
     <div class="container mx-auto px-6">
       <div class="flex flex-col-reverse md:flex-row items-center">
-        <div class="md:w-1/2 ">
+        <div class="md:w-1/2">
           <Image
             src={Gole}
             alt="Panoramica delle Gole di San Martino"
@@ -34,7 +37,9 @@ import datiJson from "@content/pages/home.json";
         <div class="md:w-1/2 md:pl-12">
           <div class="flex items-center mb-4">
             <Icon name="lucide:award" class="w-8 h-8 text-emerald-600 mr-3" />
-            <h2 class="text-xl md:text-3xl font-bold">Cosa sono le Gole di San Martino</h2>
+            <h2 class="text-xl md:text-3xl font-bold">
+              Cosa sono le Gole di San Martino
+            </h2>
           </div>
           <div class="mb-6">
             <p class="text-emerald-700 font-medium mb-3">
@@ -46,11 +51,12 @@ import datiJson from "@content/pages/home.json";
               <br /> Maiella Geopark, Geoparco Mondiale dell'UNESCO. 2021.
             </p>
           </div>
-          <p class=" md:text-lg text-stone-700 mb-6">
+          <p class="md:text-lg text-stone-700 mb-10">
             Le Gole di San Martino sono uno spettacolare Canyon ricco di unicità
             geologiche e culturali. L'area dal notevolissimo pregio ambientale e
             geologico rappresenta una delle meraviglie d'Abruzzo!
           </p>
+          <ContactButton testo="PRENOTA LA TUA ESCURSIONE" />
         </div>
       </div>
     </div>
@@ -60,7 +66,7 @@ import datiJson from "@content/pages/home.json";
   <section class="py-10 md:py-20 bg-stone-100">
     <div class="container mx-auto px-6">
       <div class="flex flex-col-reverse md:flex-row-reverse items-center">
-        <div class="md:w-1/2  flex justify-center items-center">
+        <div class="md:w-1/2 flex justify-center items-center">
           <div class="relative h-96 rounded-lg overflow-hidden shadow-xl">
             <Image
               src={Maps}
@@ -91,7 +97,6 @@ import datiJson from "@content/pages/home.json";
                 </p>
               </a>
             </div>
-			
           </div>
         </div>
         <div class="md:w-1/2 md:pr-12">
@@ -348,30 +353,25 @@ import datiJson from "@content/pages/home.json";
               </div>
             </div>
           </div>
-		  <div class="mt-10">
-		  <ContactButton testo="PRENOTA LA TUA ESCURSIONE"/>
+          <div class="mt-10">
+            <ContactButton testo="PRENOTA LA TUA ESCURSIONE" />
+          </div>
         </div>
-		</div>
       </div>
     </div>
   </section>
 
   <!-- Section 5: Oltre l'escursione -->
-  <section class="py-30 bg-fixed bg-center bg-cover overflow-y-scroll bg-no-repeat .custom-shape-divider-top-1745455074" style={`background-image: url(${bgFiume.src});`}>
+  <section
+    class="py-30 bg-fixed bg-center bg-cover overflow-y-scroll bg-no-repeat .custom-shape-divider-top-1745455074"
+    style={`background-image: url(${bgFiume.src});`}
+  >
     <div class="container mx-auto px-6">
       <div class="flex flex-col md:flex-row-reverse items-center">
-        <div class="md:w-1/2 mb-10 md:mb-0">
-          <!-- <div class="relative">
-            <Image
-              src={Fiume}
-              alt="Degustazione di pasta locale"
-              class="rounded-lg shadow-xl w-full h-full object-cover aspect-square"
-              width={800}
-              height={800}
-            />
-          </div> -->
-        </div>
-        <div class="md:w-1/2 md:pr-12 bg-white/80 backdrop-blur rounded-4xl shadow-lg p-8 bg">
+        <div class="md:w-1/2 mb-10 md:mb-0"></div>
+        <div
+          class="md:w-1/2 md:pr-12 bg-white/80 backdrop-blur rounded-4xl shadow-lg p-8 bg"
+        >
           <div class="flex items-center mb-4">
             <Icon
               name="lucide:utensils-crossed"
@@ -385,7 +385,7 @@ import datiJson from "@content/pages/home.json";
             a tema: "Capitale Mondiale della Pasta", con degustazione di pasta
             locale.
           </p>
-         <ContactButton testo="PRENOTA LA TUA ESCURSIONE"/>
+          <ContactButton testo="PRENOTA LA TUA ESCURSIONE" />
         </div>
       </div>
     </div>
@@ -394,7 +394,6 @@ import datiJson from "@content/pages/home.json";
   <Carousel />
 
   <style>
-	
     /* Custom animations */
     @keyframes fadeIn {
       from {

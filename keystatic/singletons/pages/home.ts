@@ -5,6 +5,22 @@ export const homePage = singleton({
   path: "src/content/pages/home",
   format: { data: "json" },
   schema: {
+    seoTitle: fields.text({
+      label: "Titolo SEO",
+      validation: { 
+        isRequired: true,
+        length: { max: 80 }
+       },
+    }),
+    seoDescription: fields.text({
+      label: "Descrizione SEO",
+      multiline: true,
+      validation: { 
+        isRequired: true, 
+        length: { max: 160 }
+      },
+
+    }),
     slide: fields.array(
       fields.object({
         title: fields.text({
@@ -21,21 +37,21 @@ export const homePage = singleton({
       {
         label: "Slide hero Home",
         itemLabel: (props) => props.fields.title.value,
-      },
+      }
     ),
-  
-  pretitle:fields.text({
-    label: "Pre-titolo",
-    validation: { isRequired: true },
-  }),
-  title: fields.text({
-    label: "Titolo",
-    validation: { isRequired: true },
-  }),
-  description: fields.text({
-    label: "Descrizione",
-    multiline: true,
-    validation: { isRequired: true },
-  }),
-},
+
+    pretitle: fields.text({
+      label: "Pre-titolo",
+      validation: { isRequired: true },
+    }),
+    title: fields.text({
+      label: "Titolo",
+      validation: { isRequired: true },
+    }),
+    description: fields.text({
+      label: "Descrizione",
+      multiline: true,
+      validation: { isRequired: true },
+    }),
+  },
 });

@@ -8,12 +8,21 @@ import keystatic from "@keystatic/astro";
 
 import tailwindcss from "@tailwindcss/vite";
 
+import icon from "astro-icon";
+
+import sitemap from "@astrojs/sitemap";
+
+import vercel from "@astrojs/vercel";
+
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(), markdoc(), keystatic()],
+  integrations: [react(), markdoc(), keystatic(), icon(), sitemap()],
   site: siteConfig.site.baseUrl,
   output:"static",
+
   vite: {
     plugins: [tailwindcss()],
   },
+
+  adapter: vercel(),
 });

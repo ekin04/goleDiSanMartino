@@ -1,4 +1,6 @@
 {
+  "seoTitle": "Il Gran Canyon D'Abruzzo",
+  "seoDescription": "Scopri le emozionanti escursioni nelle Gole di San Martino: natura, avventura e panorami mozzafiato nel cuore dell’Abruzzo!",
   "slide": [
     {
       "title": "Gole di San Martino vista monastero",
@@ -17,7 +19,7 @@
       "image": "/src/assets/img/cms/home/slide/3/image.jpg"
     }
   ],
-  "pretitle": "Esplora la natura selvaggia",
+  "pretitle": "Esplora il gran canyon d'Abruzzo",
   "title": "Gole di San Martino",
   "description": "Immergiti in un'esperienza unica tra le maestose pareti rocciose delle Gole di San Martino. Scopri sentieri nascosti e panorami mozzafiato nel cuore dell'Abruzzo."
 }

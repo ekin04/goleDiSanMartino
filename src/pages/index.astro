@@ -1,13 +1,461 @@
 ---
-import HeroFixed from '@components/HeroFixed.astro';
-import Layout from '../layouts/Layout.astro';
+import { Image, getImage } from "astro:assets";
+import HeroFixed from "@components/home/HeroFixed.astro";
+import Layout from "../layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
+export const prerender = true;
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Maps from "@img/cms/home/fara-san-martino-maps.png";
+import Gruppo from "@img/cms/home/gruppo.jpg";
+import Gole from "@img/cms/home/gole.jpg";
+import Fiume from "@img/cms/home/fiume.jpg";
+const bgFiume = await getImage({src: Fiume, width: 1200, quality: 50});
+import Carousel from "@components/shared/Carousel.astro";
+import ContactButton from "@components/shared/ContactButton.astro";
+import datiJson from "@content/pages/home.json";
 ---
 
-<Layout>
-	<HeroFixed />
-	<div id="section1" class="bg-yellow-300 rounded-t-2xl relative -top-[2vh]"> 
-	</div>
+<Layout titolo={datiJson.seoTitle} descrizione={datiJson.seoDescription}>
+  <HeroFixed />
+
+  <!-- Section 1: Cosa sono le Gole di San Martino -->
+  <section id="cosa-sono" class="py-10 md:py-20 bg-white relative -top-4 rounded-t-2xl">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col-reverse md:flex-row items-center">
+        <div class="md:w-1/2 ">
+          <Image
+            src={Gole}
+            alt="Panoramica delle Gole di San Martino"
+            class="rounded-lg aspect-square object-bottom shadow-xl w-full h-auto object-cover"
+            width={800}
+            height={800}
+          />
+        </div>
+        <div class="md:w-1/2 md:pl-12">
+          <div class="flex items-center mb-4">
+            <Icon name="lucide:award" class="w-8 h-8 text-emerald-600 mr-3" />
+            <h2 class="text-xl md:text-3xl font-bold">Cosa sono le Gole di San Martino</h2>
+          </div>
+          <div class="mb-6">
+            <p class="text-emerald-700 font-medium mb-3">
+              <b>"Area di Massima tutela del Parco Nazionale della Maiella" </b>
+              <br /> Parco Nazionale della Maiella. 1991
+            </p>
+            <p class="text-emerald-700 font-medium">
+              <b>"Geosito UNESCO del Maiella Geopark"</b>
+              <br /> Maiella Geopark, Geoparco Mondiale dell'UNESCO. 2021.
+            </p>
+          </div>
+          <p class=" md:text-lg text-stone-700 mb-6">
+            Le Gole di San Martino sono uno spettacolare Canyon ricco di unicità
+            geologiche e culturali. L'area dal notevolissimo pregio ambientale e
+            geologico rappresenta una delle meraviglie d'Abruzzo!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Dove si trovano -->
+  <section class="py-10 md:py-20 bg-stone-100">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col-reverse md:flex-row-reverse items-center">
+        <div class="md:w-1/2  flex justify-center items-center">
+          <div class="relative h-96 rounded-lg overflow-hidden shadow-xl">
+            <Image
+              src={Maps}
+              alt="Mappa delle Gole di San Martino"
+              class="w-full h-full object-cover"
+              height={1000}
+            />
+            <div class="absolute inset-0 flex items-center justify-center">
+              <a
+                href="https://www.google.it/maps/place/Gole+di+San+Martino/@42.0885257,14.1917248,743m/data=!3m2!1e3!4b1!4m6!3m5!1s0x1330597d9db0c565:0x63dba98515e2e94f!8m2!3d42.0885217!4d14.1942997!16s%2Fg%2F1q665w7cj?hl=it&entry=ttu&g_ep=EgoyMDI1MDQxNi4xIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-white/80 mt-20 p-4 rounded-lg shadow-lg max-w-xs"
+              >
+                <div class="flex justify-center mb-3">
+                  <div class="relative">
+                    <div
+                      class="w-4 h-4 bg-green-500 rounded-full animate-ping absolute"
+                    >
+                    </div>
+                    <div class="w-4 h-4 bg-green-500 rounded-full relative">
+                    </div>
+                  </div>
+                </div>
+                <p class="text-center font-medium">Gole di San Martino</p>
+                <p class="text-center text-sm text-stone-600">
+                  Parco Nazionale della Maiella
+                </p>
+              </a>
+            </div>
+			
+          </div>
+        </div>
+        <div class="md:w-1/2 md:pr-12">
+          <div class="flex items-center mb-4">
+            <Icon name="lucide:map-pin" class="w-8 h-8 text-emerald-600 mr-3" />
+            <h2 class="text-xl md:text-3xl font-bold">Dove si trovano</h2>
+          </div>
+          <p class="md:text-lg text-stone-700 mb-6">
+            In Abruzzo, area italiana che vanta il titolo di Regione Verde
+            d'Europa (ricoperta per più del 30% da parchi nazionali, riserve
+            regionali e oasi). Le Gole si trovano nel Comune di Fara San Martino
+            (CH), borgo abruzzese famoso per essere "La Capitale Mondiale della
+            Pasta". Sono una delle aree più importanti del Parco Nazionale della
+            Maiella, divenuto dal 2021 Geoparco Mondiale dell'UNESCO sotto il
+            nome di "Maiella Geopark" entrando così a far parte delle aree
+            naturalistiche più importanti del mondo.
+          </p>
+          <div class="grid grid-cols-2 gap-4 mb-8 md:mb-0">
+            <div class="bg-white p-4 rounded-lg shadow">
+              <p class="font-bold text-emerald-700">Regione</p>
+              <p>Abruzzo</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow">
+              <p class="font-bold text-emerald-700">Comune</p>
+              <p>Fara San Martino</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow">
+              <p class="font-bold text-emerald-700">Parco</p>
+              <p>Parco Nazionale della Maiella</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow">
+              <p class="font-bold text-emerald-700">Altitudine</p>
+              <p>440 m.s.l.m.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Cosa Faremo -->
+  <section class="py-10 md:py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <div class="flex items-center justify-center mb-4">
+          <Icon name="lucide:route" class="w-8 h-8 text-emerald-600 mr-3" />
+          <h2 class="text-xl md:text-3xl font-bold">Cosa Faremo</h2>
+        </div>
+        <p class="md:text-lg text-stone-700 max-w-3xl mx-auto">
+          Dopo la consegna del casco di sicurezza da parte della guida,
+          partiremo per la fantastica escursione!
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div
+          class="bg-stone-50 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow duration-300"
+        >
+          <div
+            class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mb-4 mx-auto"
+          >
+            <span class="text-2xl font-bold text-emerald-600">1</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-center">
+            La Porta della Maiella
+          </h3>
+          <p class="text-stone-700">
+            Attraverseremo insieme lo stretto passaggio delle "Gole", conosciute
+            anche come la "Porta della Maiella" e scopriremo la loro leggenda.
+          </p>
+        </div>
+
+        <div
+          class="bg-stone-50 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow duration-300"
+        >
+          <div
+            class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mb-4 mx-auto"
+          >
+            <span class="text-2xl font-bold text-emerald-600">2</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-center">
+            Abbazia di San Martino
+          </h3>
+          <p class="text-stone-700">
+            Vedremo la famosa Abbazia di San Martino in Valle, monastero
+            benedettino scavato nella roccia calcarea della Maiella e conosciuto
+            in tutto il Mondo!
+          </p>
+        </div>
+
+        <div
+          class="bg-stone-50 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow duration-300"
+        >
+          <div
+            class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mb-4 mx-auto"
+          >
+            <span class="text-2xl font-bold text-emerald-600">3</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-center">
+            Trekking e Fotografie
+          </h3>
+          <p class="text-stone-700">
+            Faremo un breve trekking adatto a tutti, fino alla fonte più vicina
+            e scatteremo bellissime foto alla "Petra d'Abruzzo".
+          </p>
+        </div>
+
+        <div
+          class="bg-stone-50 rounded-lg p-6 shadow-md hover:shadow-xl transition-shadow duration-300"
+        >
+          <div
+            class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mb-4 mx-auto"
+          >
+            <span class="text-2xl font-bold text-emerald-600">4</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-center">
+            Sorgenti del Fiume Verde
+          </h3>
+          <p class="text-stone-700">
+            Terminata la visita nelle Gole scopriremo le acque cristalline delle
+            "Sorgenti del Fiume Verde" dove si concluderà la nostra visita.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: A chi è rivolto -->
+  <section class="py-10 md:py-20 bg-emerald-50">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col-reverse md:flex-row items-center">
+        <div class="md:w-1/2 mb-10 md:mb-0">
+          <Image
+            src={Gruppo}
+            alt="Famiglie in escursione alle Gole di San Martino"
+            class="mt-10 md:mt-0 rounded-lg aspect-square object-center shadow-xl w-full h-auto object-cover"
+            width={800}
+            height={800}
+          />
+        </div>
+        <div class="md:w-1/2 md:pl-12">
+          <div class="flex items-center mb-4">
+            <Icon name="lucide:users" class="w-8 h-8 text-emerald-600 mr-3" />
+            <h2 class="text-xl md:text-3xl font-bold">A chi è rivolto</h2>
+          </div>
+          <p class="md:text-lg text-stone-700 mb-6">
+            A chiunque voglia passare un'esperienza rilassante in natura. È una
+            semplice camminata adatta a tutti, anche ai bambini. Il trekking si
+            snoda all'interno di un percorso non molto impegnativo, di 3 km e
+            100 metri di dislivello.
+          </p>
+          <p class="md:text-lg text-stone-700 mb-6">
+            L'attività è molto amata dalle coppie in cerca di luoghi magnifici
+            da visitare, da gruppi che vogliano trascorrere un'esperienza in
+            montagna, da famiglie con bambini che vogliono scoprire le bellezze
+            della natura.
+          </p>
+
+          <div class="grid grid-cols-2 gap-4 mt-8">
+            <div class="flex items-center">
+              <div
+                class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mr-4"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 text-emerald-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <p class="font-bold">Durata</p>
+                <p class="text-sm">2-3 ore</p>
+              </div>
+            </div>
+
+            <div class="flex items-center">
+              <div
+                class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mr-4"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 text-emerald-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                </svg>
+              </div>
+              <div>
+                <p class="font-bold">Dislivello</p>
+                <p class="text-sm">100 metri</p>
+              </div>
+            </div>
+
+            <div class="flex items-center">
+              <div
+                class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mr-4"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 text-emerald-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </div>
+              <div>
+                <p class="font-bold">Distanza</p>
+                <p class="text-sm">3 km</p>
+              </div>
+            </div>
+
+            <div class="flex items-center">
+              <div
+                class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mr-4"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 text-emerald-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <p class="font-bold">Difficoltà</p>
+                <p class="text-sm">Facile</p>
+              </div>
+            </div>
+          </div>
+		  <div class="mt-10">
+		  <ContactButton testo="PRENOTA LA TUA ESCURSIONE"/>
+        </div>
+		</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Oltre l'escursione -->
+  <section class="py-30 bg-fixed bg-center bg-cover overflow-y-scroll bg-no-repeat .custom-shape-divider-top-1745455074" style={`background-image: url(${bgFiume.src});`}>
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row-reverse items-center">
+        <div class="md:w-1/2 mb-10 md:mb-0">
+          <!-- <div class="relative">
+            <Image
+              src={Fiume}
+              alt="Degustazione di pasta locale"
+              class="rounded-lg shadow-xl w-full h-full object-cover aspect-square"
+              width={800}
+              height={800}
+            />
+          </div> -->
+        </div>
+        <div class="md:w-1/2 md:pr-12 bg-white/80 backdrop-blur rounded-4xl shadow-lg p-8 bg">
+          <div class="flex items-center mb-4">
+            <Icon
+              name="lucide:utensils-crossed"
+              class="w-8 h-8 text-emerald-400 mr-3"
+            />
+            <h2 class="text-3xl font-bold">Oltre l'escursione</h2>
+          </div>
+          <p class="md:text-lg mb-8 text-stone-700">
+            Al termine della visita all'interno delle Gole di San Martino, è
+            possibile prenotare in aggiunta un pranzo a base di pietanze tipiche
+            a tema: "Capitale Mondiale della Pasta", con degustazione di pasta
+            locale.
+          </p>
+         <ContactButton testo="PRENOTA LA TUA ESCURSIONE"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Carousel />
+
+  <style>
+	
+    /* Custom animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-title {
+      animation: fadeIn 1s ease-out 0.2s both;
+    }
+
+    .animate-subtitle {
+      animation: fadeIn 1s ease-out 0.6s both;
+    }
+
+    .animate-button {
+      animation: fadeIn 1s ease-out 1s both;
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Custom font settings */
+    body {
+      font-family: "Montserrat", sans-serif;
+    }
+  </style>
+
+  <script>
+    // Intersection Observer for scroll animations
+    document.addEventListener("DOMContentLoaded", () => {
+      const sections = document.querySelectorAll("section");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("opacity-100", "translate-y-0");
+              entry.target.classList.remove("opacity-0", "translate-y-10");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      sections.forEach((section) => {
+        section.classList.add(
+          "transition-all",
+          "duration-1000",
+          "opacity-0",
+          "translate-y-10"
+        );
+        observer.observe(section);
+      });
+    });
+  </script>
 </Layout>

@@ -16,9 +16,9 @@ export default config({
       },
       navigation: {
         Pagine: ["home"],
-        Blog: ["blog", "categorie"],
+        /* Blog: ["blog", "categorie"],
         Home: ["caroselloHome"],
-        Impostazioni: ["navbarHeader"],
+        Impostazioni: ["navbarHeader"], */
       },
   },
   collections,

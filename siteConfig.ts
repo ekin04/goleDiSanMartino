@@ -1,7 +1,7 @@
 export const siteConfig = {
   site: {
     baseUrl: "https://goledisanmartino.it",
-    defaultTitle: "Goledi San Martino",
+    defaultTitle: "Gole di San Martino",
     favicon:
       "https://www.maiellaescursioni.it/wp-content/uploads/2023/10/favicon-png-maiella-escursioni.png",
   },

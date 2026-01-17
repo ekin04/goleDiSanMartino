@@ -1,9 +1,0 @@
-
-User-agent: *
-Allow: /
-
-User-agent: *
-Disallow: /privacy_policy
-Disallow: /cookie_policy
-
-Sitemap: https://goledisanmartino.it/sitemap-index.xml

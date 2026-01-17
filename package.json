@@ -5,11 +5,13 @@
   "scripts": {
     "dev": "astro dev --host",
     "build": "astro build",
-    "preview": "astro preview",
+    "build:node": "astro build --node",
+    "preview": "astro preview --node",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/markdoc": "^0.15.10",
+    "@astrojs/node": "^9.5.2",
     "@astrojs/react": "^4.4.2",
     "@astrojs/sitemap": "^3.7.0",
     "@astrojs/vercel": "^9.0.4",

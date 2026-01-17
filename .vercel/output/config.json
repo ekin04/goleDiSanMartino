@@ -28,11 +28,11 @@
 		},
 		{
 			"src": "^/api/keystatic(?:/(.*?))?/?$",
-			"dest": "_render"
+			"dest": "/_isr?x_astro_path=$0"
 		},
 		{
 			"src": "^/keystatic(?:/(.*?))?/?$",
-			"dest": "_render"
+			"dest": "/_isr?x_astro_path=$0"
 		}
 	]
 }

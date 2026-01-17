@@ -20,4 +20,7 @@ export default defineConfig({
   },
 
   adapter: vercel(),
+  redirects: {
+    "/digital": "/keystatic",
+  },
 });

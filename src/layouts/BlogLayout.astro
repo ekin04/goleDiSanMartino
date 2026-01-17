@@ -1,0 +1,15 @@
+---
+import Layout from "./Layout.astro";
+interface Props {
+  titolo: string;
+  descrizione: string;
+  immagine?: string;
+  index?: boolean;
+  data?: Date;
+}
+const { titolo, descrizione, immagine, index, data } = Astro.props;
+---
+
+<Layout {titolo} {descrizione} {immagine} {index} {data}>
+    <slot/>
+</Layout>

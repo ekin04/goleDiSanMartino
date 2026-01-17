@@ -1,0 +1,32 @@
+{
+  "items": [
+    {
+      "label": "Home",
+      "path": "/",
+      "icon": "mdi:home-variant-outline",
+      "externalLink": false,
+      "children": []
+    },
+    {
+      "label": "Blog",
+      "path": "/blog/",
+      "icon": "mdi:blog-outline",
+      "externalLink": false,
+      "children": []
+    },
+    {
+      "label": "Escursioni",
+      "path": "https://www.maiellaescursioni.it/escursioni/",
+      "icon": "mdi:hiking",
+      "externalLink": true,
+      "children": []
+    },
+    {
+      "label": "Contatti",
+      "path": "/#call-to-action",
+      "icon": "mdi:contact-phone-outline",
+      "externalLink": false,
+      "children": []
+    }
+  ]
+}

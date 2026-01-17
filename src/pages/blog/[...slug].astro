@@ -1,0 +1,135 @@
+---
+import { getCollection } from "astro:content";
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("blog");
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+import { Icon } from "astro-icon/components";
+import BlogLayout from "layouts/BlogLayout.astro";
+import BlogBreadcrumb from "@components/blog/BlogBreadcrumb.astro";
+import Aside from "@components/blog/Aside.astro";
+import ImageAstro from "@components/shared/ImageAstroBack.astro";
+import GalleryItem from "@components/shared/GalleryItem.astro";
+const timeToRead = Math.ceil(entry.body.split(/\s+/).length / 200);
+import Prose from "@components/blog/Prose.astro";
+import ReadBar from "@components/blog/ReadBar";
+import type { ImageMetadata } from "astro";
+import PrevAndAfter from "@components/blog/PrevAndAfter.astro";
+const blogImages = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/img/cms/**/*.{jpeg,jpg,png,gif,webp}",
+);
+const ogImage = await blogImages[entry.data.thumbnail]();
+---
+
+<BlogLayout
+  titolo={entry.data.title}
+  descrizione={entry.data.excerpt}
+  immagine={ogImage.default.src}
+  data={entry.data.date}
+>
+  <div class="bg-white w-full mt-16">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8 pb-12 pt-8">
+      <div class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-8">
+        <main class="lg:col-span-8">
+          <BlogBreadcrumb title={entry.data.title} data-aos="fade-right" />
+          <div
+            class="relative w-full h-64 sm:h-80 md:h-[450px] mb-8 rounded-3xl shadow-xl overflow-hidden bg-no-repeat bg-center bg-cover"
+            data-aos="fade-in"
+            data-aos-duration="1000"
+          >
+            <ImageAstro
+              imagePath={entry.data.thumbnail}
+              altText={"Immagine di copertina"}
+              classList="w-full h-full object-cover object-center"
+              widths={[400, 900]}
+              priority={true}
+            />
+          </div>
+          {/* Title and Meta */}
+          <Prose>
+            <h1>{entry.data.title}</h1>
+          </Prose>
+          <Prose>
+            <div
+              class="flex justify-center lg:justify-start flex-wrap items-center text-stone-800 p-2 rounded-3xl my-4 space-x-4 lg:text-lg lg:mt-4 lg:mb-3"
+            >
+              <div class="flex items-center">
+                <Icon name="mdi:calendar-month-outline" class="w-4 h-4 mr-2" />
+                <time datetime={entry.data.date.toISOString()}
+                  >{entry.data.date.toLocaleDateString()}</time
+                >
+              </div>
+              <div class="flex items-center">
+                <Icon name="mdi:clock-time-four-outline" class="w-4 h-4 mr-2" />
+                <span>{timeToRead} min</span>
+              </div>
+              <div class="flex items-center">
+                <Icon name="mdi:tag-outline" class="w-4 h-4 mr-2" />
+                {
+                  entry.data.categoria.map((i: string) => (
+                    <span class="capitalize mr-2">{i}</span>
+                  ))
+                }
+              </div>
+            </div>
+          </Prose>
+          <article>
+            <Prose>
+              <Content />
+            </Prose>
+          </article>
+          {
+            entry.data.galleria.length > 0 && (
+              <section class="my-12" data-aos="fade-in">
+                <Prose>
+                  <h2 class="mb-4">Galleria</h2>
+                </Prose>
+                <div
+                  id="gallery"
+                  class="mt-6 grid gap-4 grid-cols-2 sm:grid-cols-3"
+                >
+                  {entry.data.galleria.map(
+                    (i: { src: string; alt: string }) => (
+                      <GalleryItem
+                        imagePath={i.src}
+                        altText={i.alt}
+                        widths={[500, 800]}
+                        classList="w-full h-full object-cover object-center rounded-xl"
+                      />
+                    ),
+                  )}
+                </div>
+              </section>
+            )
+          }
+          <hr
+            class="w-48 h-1 mx-auto my-8 bg-stone-200 border-0 rounded md:my-10"
+          />
+          <PrevAndAfter />
+        </main>
+        <Aside />
+      </div>
+    </div>
+  </div>
+  <ReadBar client:load />
+  <script>
+    import PhotoSwipeLightbox from "photoswipe/lightbox";
+    import "photoswipe/style.css";
+
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: "#gallery",
+      children: "a",
+      bgOpacity: 0.95,
+      pswpModule: () => import("photoswipe"),
+    });
+    lightbox.init();
+    document.addEventListener("astro:page-load", () => {
+      lightbox.init();
+    });
+  </script>
+</BlogLayout>

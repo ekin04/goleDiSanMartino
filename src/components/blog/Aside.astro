@@ -1,0 +1,43 @@
+---
+import { getCollection } from "astro:content";
+const slug = Astro.params.slug 
+const allPost = await getCollection("blog");
+const postOrdinati = allPost.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const postFiltrati = postOrdinati.filter((post) => post.slug !== slug).slice(0, 4);
+import ImageAstro from "@components/Shared/ImageAstro.astro";
+---
+
+<aside class="mt-12 hidden lg:block lg:mt-0 lg:col-span-4">
+    <div class="sticky top-24 ">
+      <h2 class="text-xl font-bold mb-4">Ultimi Articoli
+      </h2>
+      <div class="space-y-5">
+        {postFiltrati.map((i, index) => (
+          <a href={`/blog/${i.slug}/`} class="block group hover:text-green-500 transition">
+            <div class="flex items-center overflow-x-hidden">
+              <div class="flex-shrink-0 h-28 w-28 rounded-md overflow-hidden relative"
+              data-aos="fade-right"
+              data-aos-delay={(index + 1) * 100}>
+                 <ImageAstro
+                  imagePath={i.data.thumbnail}
+                  altText={`Article ${i.data.title} thumbnail`}
+                  widths={[300]}
+                  classList="w-full h-full object-cover object-center"
+                /> 
+              </div>
+              <div class="ml-4 flex justify-center flex-col"
+              data-aos="fade-left"
+              data-aos-delay={(index + 1) * 100}>
+                <h3 class="text-lg line-clamp-2 font-medium text-gray-900 group-hover:text-green-500 transition-colors leading-tight">
+                  {i.data.title}
+                </h3>
+                <p class="text-sm line-clamp-2 text-gray-500 my-1">{i.data.excerpt}</p>
+                <span class="text-xs text-gray-500">{i.data.date.toLocaleDateString("it")}</span>
+              </div>
+            </div>
+          </a>
+          <hr class="bg-stone-200 w-3/5 h-0.5 mx-auto" />
+        ))}
+      </div>
+    </div>
+  </aside>

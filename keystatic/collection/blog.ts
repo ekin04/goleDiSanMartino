@@ -11,7 +11,7 @@ export const blogCollection = collection({
     title: fields.slug({
       name: {
         label: "Titolo",
-        validation: { isRequired: true, length: { max: 60 } },
+        validation: { isRequired: true },
       },
     }),
     excerpt: fields.text({
@@ -51,6 +51,20 @@ export const blogCollection = collection({
         label: "Categorie",
         itemLabel: (item) => item.value || "Seleziona una categoria",
       },
+    ),
+    galleria: fields.array(
+      fields.object({
+        src: fields.image({
+          label: "Source",
+          directory: "src/assets/img/cms/blog",
+          publicPath: "/src/assets/img/cms/blog",
+        }),
+        alt: fields.text({ label: "Alt Text" }),
+      }),
+      {
+        label: "Galleria di Immagini",
+        itemLabel: (props) => props.fields.alt.value,
+      }
     ),
   },
 });

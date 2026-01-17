@@ -1,0 +1,108 @@
+---
+import { SEO } from "astro-seo";
+import { siteConfig } from "../../../siteConfig";
+interface Props {
+  titolo: string;
+  descrizione: string;
+  immagine?: string;
+  index?: boolean;
+  data?: Date;
+}
+const { titolo, descrizione, immagine, index, data } = Astro.props;
+
+const organizationProperties = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: siteConfig.commit.name,
+  url: siteConfig.commit.url,
+  logo: siteConfig.commit.logo,
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: siteConfig.commit.phone,
+  },
+};
+
+const articleProperties = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: titolo,
+  author: {
+    "@type": "Person",
+    name: siteConfig.commit.name,
+  },
+  datePublished: data,
+  description: descrizione,
+  url: Astro.url.href,
+};
+
+const structuredData = data
+  ? {
+      ...articleProperties,
+    }
+  : {
+      ...organizationProperties,
+    };
+---
+
+<SEO
+  title={titolo}
+  titleTemplate={"%s | " + siteConfig.site.defaultTitle}
+  description={descrizione}
+  charset="UTF-8"
+  nofollow={index === false}
+  ,
+  noindex={index === false}
+  canonical={Astro.url.href}
+  openGraph={{
+    basic: {
+      title: titolo,
+      type: "website",
+      image: immagine ? immagine : Astro.url.origin + "/img/og_banner.png",
+    },
+    optional: {
+      description: descrizione,
+      locale: "it_IT",
+    },
+  }}
+  ,
+  twitter={{
+    card: "summary_large_image",
+    site: Astro.url.origin,
+    title: titolo,
+    image: immagine ? immagine : Astro.url.origin + "/img/og_banner.png",
+    description: descrizione,
+  }}
+  extend={{
+    link: [
+      { rel: "sitemap", href: Astro.url.origin + "/sitemap-index.xml" },
+      {
+        rel: "icon",
+        type: "image/x-icon",
+        href: "/favicon/favicon-48x48.png",
+        sizes: "48x48",
+      },
+      { rel: "icon", type: "image/svg+xml", href: "/favicon/favicon.svg" },
+      { rel: "icon", type: "image/svg+xml", href: "/favicon/favicon.svg" },
+      { rel: "shortcut icon", href: "/favicon/favicon.ico" },
+      {
+        rel: "apple-touch-icon",
+        sizes: "180x180",
+        href: "/favicon/apple-touch-icon.png",
+      },
+      { rel: "manifest", href: "/favicon/site.webmanifest" },
+    ],
+    meta: [
+      { name: "viewport", content: "width=device-width, initial-scale=1.0" },
+      { name: "theme-color", content: "#0E9F6E" },
+      {
+        name: "apple-mobile-web-app-title",
+        content: siteConfig.site.defaultTitle,
+      },
+    ],
+  }}
+/>
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(structuredData)}
+/>

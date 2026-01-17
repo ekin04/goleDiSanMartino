@@ -15,7 +15,11 @@ import ContactButton from "@components/shared/ContactButton.astro";
 import datiJson from "@content/pages/home.json";
 ---
 
-<Layout titolo={datiJson.seoTitle} descrizione={datiJson.seoDescription}>
+<Layout
+  titolo={datiJson.seoTitle}
+  descrizione={datiJson.seoDescription}
+  navbar={true}
+>
   <HeroFixed />
 
   <!-- Section 1: Cosa sono le Gole di San Martino -->
@@ -444,7 +448,7 @@ import datiJson from "@content/pages/home.json";
             }
           });
         },
-        { threshold: 0.1 }
+        { threshold: 0.1 },
       );
 
       sections.forEach((section) => {
@@ -452,7 +456,7 @@ import datiJson from "@content/pages/home.json";
           "transition-all",
           "duration-1000",
           "opacity-0",
-          "translate-y-10"
+          "translate-y-10",
         );
         observer.observe(section);
       });

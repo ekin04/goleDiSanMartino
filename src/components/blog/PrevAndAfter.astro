@@ -1,13 +1,13 @@
 ---
 import { getCollection } from "astro:content";
-import ImageAstro from "@components/Shared/ImageAstro.astro";
+import ImageAstro from "@components/shared/ImageAstro.astro";
 
 const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
 
 const currentPostIndex = posts.findIndex(
-  (post) => post.slug == Astro.params.slug
+  (post) => post.slug == Astro.params.slug,
 );
 const previousPost =
   currentPostIndex + 1 === posts.length

@@ -4,7 +4,7 @@ const slug = Astro.params.slug
 const allPost = await getCollection("blog");
 const postOrdinati = allPost.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 const postFiltrati = postOrdinati.filter((post) => post.slug !== slug).slice(0, 4);
-import ImageAstro from "@components/Shared/ImageAstro.astro";
+import ImageAstro from "@components/shared/ImageAstro.astro";
 ---
 
 <aside class="mt-12 hidden lg:block lg:mt-0 lg:col-span-4">

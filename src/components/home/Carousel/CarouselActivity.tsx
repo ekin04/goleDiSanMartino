@@ -56,8 +56,8 @@ const CarouselWrapper = ({ cards }: { cards: any }) => {
               className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 ease-in-out group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-            <div className="absolute bottom-12 right-4 p-4 w-5/6">
-              <h2 className="mb-2 text-2xl text-pretty text-right font-bold text-white transition-transform duration-500 group-hover:translate-x-2">
+            <div className="absolute bottom-8 right-4 p-4 w-6/7">
+              <h2 className="mb-0 text-2xl text-pretty text-right font-bold text-white transition-transform duration-500 group-hover:translate-x-2">
                 {card.title}
               </h2>
             </div>

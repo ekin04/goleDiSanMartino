@@ -345,16 +345,8 @@ Uno dei rifugi più belli e completi d’Abruzzo. Il Rifugio gestito è situato 
 
 ---
 
-&nbsp;
-
 [**PRENOTA ORA**](https://wa.me/message/VNFCLHFAMCJLI1)**👈&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;[SCOPRI DI PIU’👈](https://www.maiellaescursioni.it/)**
 
 Per scoprire altre attività e conoscere i sentieri più belli d’Abruzzo..
 
 Segui su Instagram: [@maiellaescursioni 👈 (Aggiornamenti su trekking ed escursioni)](https://www.instagram.com/maiellaescursioni/)
-
-&nbsp;
-
----
-
-Samuele Santilli&nbsp; 18/11/2025

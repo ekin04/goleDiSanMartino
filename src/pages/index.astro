@@ -13,6 +13,7 @@ const bgFiume = await getImage({ src: Fiume, width: 1200, quality: 50 });
 import Carousel from "@components/shared/Carousel.astro";
 import ContactButton from "@components/shared/ContactButton.astro";
 import datiJson from "@content/pages/home.json";
+import UltimiArticoli from "@components/home/UltimiArticoli.astro";
 ---
 
 <Layout
@@ -367,6 +368,7 @@ import datiJson from "@content/pages/home.json";
   </section>
 
   <Call_to_action />
+  <UltimiArticoli />
 
   <!-- Section 5: Oltre l'escursione -->
   <section

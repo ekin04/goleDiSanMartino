@@ -1,15 +1,34 @@
 ---
-import { Icon } from "astro-icon/components"
-const { title } = Astro.props
+import { Icon } from "astro-icon/components";
+const { title } = Astro.props;
 ---
-<nav class="flex items-center mb-4 overflow-x-hidden " >
-    <a href="/" class="hover:text-primary transition-colors" aria-label="Home">
-      <Icon name="mdi:home" class="w-5 h-5" data-aos="fade-left" data-aos-delay="100"/>
-    </a>
-    <span class="mx-2" data-aos="fade-left" data-aos-delay="200">/</span>
-    <a href="/blog/" class="hover:text-primary transition-colors" data-aos="fade-left" data-aos-delay="300">
-      Blog
-    </a>
-    <span class="mx-2" data-aos="fade-left" data-aos-delay="400">/</span>
-    <span class="font-semibold text-primary line-clamp-1" data-aos="fade-left" data-aos-delay="500">{title}</span>
-  </nav>
+
+<nav class="flex items-center mb-4 overflow-x-hidden">
+  <a
+    href="/"
+    class="hover:text-emerald-700 transition-colors"
+    aria-label="Home"
+  >
+    <Icon
+      name="mdi:home"
+      class="w-5 h-5"
+      data-aos="fade-left"
+      data-aos-delay="100"
+    />
+  </a>
+  <span class="mx-2" data-aos="fade-left" data-aos-delay="200">/</span>
+  <a
+    href="/blog/"
+    class="hover:text-emerald-700 transition-colors"
+    data-aos="fade-left"
+    data-aos-delay="300"
+  >
+    Blog
+  </a>
+  <span class="mx-2" data-aos="fade-left" data-aos-delay="400">/</span>
+  <span
+    class="font-semibold text-emerald-700 line-clamp-1"
+    data-aos="fade-left"
+    data-aos-delay="500">{title}</span
+  >
+</nav>

@@ -1,0 +1,87 @@
+---
+import ChiamaciButton from "@components/shared/ChiamaciButton.astro";
+import ContactButton from "@components/shared/ContactButton.astro";
+import maiellaLogo from "@img/loghi/Logo-maiella-escursioni.webp";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+---
+
+<!-- Call to Action Section -->
+<section
+  class="pt-16 px-4 md:px-8 bg-white flex flex-col justify-center items-center w-full overflow-x-hidden overflow-y-hidden"
+  id="call-to-action"
+>
+  <div class="max-w-5xl w-full justify-between">
+    <div class="grid grid-cols-1 md:grid-cols-2">
+      <div class="flex flex-col justify-center items-center w-full">
+        <h2
+          class="text-3xl md:text-4xl font-bold mb-5 text-gray-800"
+          data-aos="fade-up"
+        >
+          Pronto per l'avventura?
+        </h2>
+        <div class="flex flex-row gap-4">
+          <ContactButton
+            classe="px-3 py-3 md:px-6 md:py-4 mt-3 text-xl md:text-2xl"
+            animation="zoom-in-up"
+            delay="500"
+            testo="PRENOTA ORA"
+          />
+          <ChiamaciButton
+            classe="contactButton bg-emerald-700 hover:bg-emerald-800 px-3 py-3 md:px-6 md:py-4 mt-3 text-md md:text-xl text-white rounded-full shadow-lg transition-all duration-300 ease-in-out"
+            animation="zoom-in-down"
+            delay="200"
+          />
+        </div>
+        <h3
+          class="text-2xl md:text-3xl font-bold my-10 text-gray-800"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          Seguici sui nostri social
+        </h3>
+        <div class="grid grid-cols-2 gap-4">
+          <a
+            href="https://www.facebook.com/maiellaescursioni/"
+            target="_blank"
+            aria-label="Facebook link"
+            class="text-7xl"
+            data-aos="zoom-in"
+            ><Icon
+              name="mdi:facebook"
+              class="text-emerald-700 hover:text-emerald-600 transition"
+            /></a
+          >
+          <a
+            href="https://www.instagram.com/maiellaescursioni/"
+            target="_blank"
+            class="text-7xl"
+            aria-label="Instagram link"
+            data-aos="zoom-in"
+            ><Icon
+              name="mdi:instagram"
+              class="text-emerald-700 hover:text-emerald-600 transition"
+            /></a
+          >
+        </div>
+      </div>
+      <div class="flex flex-col justify-center items-center">
+        <a
+          href="https://maiellaescursioni.it"
+          target="_blank"
+          class="flex w-80 md:w-full justify-center items-center"
+        >
+          <Image
+            title="Maiella escursioni Logo"
+            src={maiellaLogo}
+            alt="Maiella Logo"
+            width={400}
+            height={400}
+            data-aos="zoom-in"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+  <hr class="w-48 h-1 mx-auto my-4 bg-emerald-700 border-0 rounded md:my-10" />
+</section>

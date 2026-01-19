@@ -6,10 +6,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/img/cms/carosello/**/**/*.{jpeg,jpg,png,gif,webp}", {eager:true}
+  "/src/assets/img/cms/carosello/**/**/*.{jpeg,jpg,png,gif,webp}", { eager: true }
 );
 
-const CarouselWrapper = ({ cards }: { cards: any}) => {
+const CarouselWrapper = ({ cards }: { cards: any }) => {
   return (
     <Swiper
       // install Swiper modules
@@ -48,13 +48,13 @@ const CarouselWrapper = ({ cards }: { cards: any}) => {
             target="_blank"
           >
             <img
-                title={card.title}
-                src={images[card.image].default.src}
-                alt={card.title+" slide"}
-                width={500}
-                height={500}
-                className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 ease-in-out group-hover:scale-110"
-              />
+              title={card.title}
+              src={images[card.image].default.src}
+              alt={card.title + " slide"}
+              width={500}
+              height={500}
+              className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 ease-in-out group-hover:scale-110"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
             <div className="absolute bottom-12 right-4 p-4 w-5/6">
               <h2 className="mb-2 text-2xl text-pretty text-right font-bold text-white transition-transform duration-500 group-hover:translate-x-2">

@@ -1,0 +1,77 @@
+---
+interface Props {
+    page: any;
+}
+
+const { page } = Astro.props;
+---
+
+<nav
+    aria-label="Page navigation example"
+    class="flex justify-center mt-12 mb-16"
+>
+    <ul class="flex -space-x-px text-sm">
+        <li>
+            {
+                page.url.prev ? (
+                    <a
+                        href={page.url.prev}
+                        class="flex items-center justify-center text-stone-600 bg-white box-border border border-stone-300 hover:bg-stone-100 hover:text-stone-900 font-medium rounded-s-xl text-sm px-3 h-10 focus:outline-none transition-colors"
+                    >
+                        Precedente
+                    </a>
+                ) : (
+                    <span class="flex items-center justify-center text-stone-400 bg-stone-50 box-border border border-stone-200 font-medium rounded-s-xl text-sm px-3 h-10 cursor-not-allowed">
+                        Precedente
+                    </span>
+                )
+            }
+        </li>
+
+        {
+            page.data.length > 0 &&
+                Array.from({ length: page.lastPage }, (_, i) => i + 1).map(
+                    (pageNum) => (
+                        <li>
+                            <a
+                                href={
+                                    pageNum === 1
+                                        ? "/blog/"
+                                        : `/blog/${pageNum}/`
+                                }
+                                aria-current={
+                                    page.currentPage === pageNum
+                                        ? "page"
+                                        : undefined
+                                }
+                                class={`flex items-center justify-center box-border border border-stone-300 font-medium text-sm w-10 h-10 focus:outline-none transition-colors ${
+                                    page.currentPage === pageNum
+                                        ? "text-white bg-emerald-700 border-emerald-700 hover:bg-emerald-600"
+                                        : "text-stone-600 bg-white hover:bg-stone-100 hover:text-stone-900"
+                                }`}
+                            >
+                                {pageNum}
+                            </a>
+                        </li>
+                    ),
+                )
+        }
+
+        <li>
+            {
+                page.url.next ? (
+                    <a
+                        href={page.url.next}
+                        class="flex items-center justify-center text-stone-600 bg-white box-border border border-stone-300 hover:bg-stone-100 hover:text-stone-900 font-medium rounded-e-xl text-sm px-3 h-10 focus:outline-none transition-colors"
+                    >
+                        Successivo
+                    </a>
+                ) : (
+                    <span class="flex items-center justify-center text-stone-400 bg-stone-50 box-border border border-stone-200 font-medium rounded-e-xl text-sm px-3 h-10 cursor-not-allowed">
+                        Successivo
+                    </span>
+                )
+            }
+        </li>
+    </ul>
+</nav>

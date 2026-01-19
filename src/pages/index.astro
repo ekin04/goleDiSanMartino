@@ -4,7 +4,7 @@ import HeroFixed from "@components/home/HeroFixed.astro";
 import Layout from "../layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
 export const prerender = true;
-
+import Call_to_action from "@components/home/Call_to_action.astro";
 import Maps from "@img/cms/home/fara-san-martino-maps.png";
 import Gruppo from "@img/cms/home/gruppo.jpg";
 import Gole from "@img/cms/home/gole.jpg";
@@ -365,6 +365,8 @@ import datiJson from "@content/pages/home.json";
       </div>
     </div>
   </section>
+
+  <Call_to_action />
 
   <!-- Section 5: Oltre l'escursione -->
   <section

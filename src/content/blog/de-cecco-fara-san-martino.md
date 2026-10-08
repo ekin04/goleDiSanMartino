@@ -4,7 +4,7 @@ excerpt: >-
   De Cecco Fara San Martino: scopri la storia del pastificio, dal mulino del
   1831 alla pasta del 1886, l'innovazione del 1889 e il legame con la Maiella.
 date: 2026-10-08T11:47:00.000Z
-thumbnail: /src/assets/img/cms/blog/de-cecco-fara-san-martino/thumbnail.jfif
+thumbnail: /src/assets/img/cms/blog/de-cecco-fara-san-martino/thumbnail.jpg
 categoria:
   - luoghi
 galleria: []

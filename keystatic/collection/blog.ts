@@ -59,7 +59,7 @@ export const blogCollection = collection({
           directory: "src/assets/img/cms/blog",
           publicPath: "/src/assets/img/cms/blog",
         }),
-        alt: fields.text({ label: "Alt Text" }),
+        alt: fields.text({ label: "Alt Text", validation: { isRequired: true } }),
       }),
       {
         label: "Galleria di Immagini",

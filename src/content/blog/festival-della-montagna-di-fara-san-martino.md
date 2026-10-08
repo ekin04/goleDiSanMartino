@@ -7,7 +7,8 @@ excerpt: >-
 date: 2026-10-08T11:31:00.000Z
 thumbnail: >-
   /src/assets/img/cms/blog/festival-della-montagna-di-fara-san-martino/thumbnail.jpeg
-categoria: []
+categoria:
+  - attivita
 galleria: []
 ---
 # Festival della Montagna di Fara San Martino: sport, natura, cultura e tradizioni ai piedi della Maiella
